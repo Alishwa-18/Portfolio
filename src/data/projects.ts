@@ -16,7 +16,7 @@ export type Project = {
   stack: string[];
   links?: { label: string; href: string }[];
   team?: boolean; // collaborative / team build, not solo authorship
-  image?: string; // path under /public/projects — ask me to wire this in once you send the file
+  images?: string[]; // paths under /public/projects/<slug>/
 };
 
 export const projects: Project[] = [
@@ -87,6 +87,17 @@ export const projects: Project[] = [
     result:
       "80% reduction in manual task-entry time and near-zero missed follow-ups for the client's remote team.",
     stack: ["n8n", "Telegram API", "OpenAI", "Notion API"],
+    images: [
+      "/projects/ai-telegram-task-bot/01-main-flow.png",
+      "/projects/ai-telegram-task-bot/02.png",
+      "/projects/ai-telegram-task-bot/03.png",
+      "/projects/ai-telegram-task-bot/04.png",
+      "/projects/ai-telegram-task-bot/05.png",
+      "/projects/ai-telegram-task-bot/06.png",
+      "/projects/ai-telegram-task-bot/07.png",
+      "/projects/ai-telegram-task-bot/08.png",
+      "/projects/ai-telegram-task-bot/09.png",
+    ],
   },
   {
     slug: "master-agent-router",
@@ -113,6 +124,7 @@ export const projects: Project[] = [
       "Incoming requests are classified and followed up on automatically, with a Sheets-based record of what happened and when.",
     stack: ["n8n", "HubSpot", "Twilio", "Google Sheets", "OpenAI"],
     links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Automation-Projects" }],
+    images: ["/projects/hubspot-chatbot/01-flow.png"],
   },
   {
     slug: "meeting-management-system",
@@ -126,6 +138,10 @@ export const projects: Project[] = [
       "One connected system instead of five manual steps — book, move, cancel, or remind, all through the same workflow family.",
     stack: ["n8n", "Google Calendar", "Microsoft Outlook", "Notion", "Telegram"],
     links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Automation-Projects" }],
+    images: [
+      "/projects/meeting-management-system/01-routing.png",
+      "/projects/meeting-management-system/02-reminders.png",
+    ],
   },
   {
     slug: "invoice-processing",
@@ -168,6 +184,10 @@ export const projects: Project[] = [
       "One incoming request updates CRM, billing, and store records together instead of drifting out of sync across three systems.",
     stack: ["Make.com", "Zoho CRM", "Zoho Books", "WooCommerce", "OpenAI", "Gmail"],
     links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Automation-Projects" }],
+    images: [
+      "/projects/crm-woocommerce-automation/01-crm-flow.png",
+      "/projects/crm-woocommerce-automation/02-full-router.png",
+    ],
   },
 
   // ---------------------------------------------------------------------

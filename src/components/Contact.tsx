@@ -1,6 +1,12 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, MessageCircle, ExternalLink } from "lucide-react";
 
 const socials = [
+  {
+    label: "LinkedIn",
+    value: "alishwa-shakeel",
+    href: "https://www.linkedin.com/in/alishwa-shakeel-127959269",
+    icon: Linkedin,
+  },
   {
     label: "GitHub",
     value: "github.com/Alishwa-18",
@@ -8,17 +14,23 @@ const socials = [
     icon: Github,
   },
   {
+    label: "WhatsApp",
+    value: "+92 318 7542870",
+    href: "https://wa.me/923187542870",
+    icon: MessageCircle,
+  },
+  {
     label: "Email",
     value: "alishwashakeel7@gmail.com",
     href: "mailto:alishwashakeel7@gmail.com",
     icon: Mail,
   },
-  {
-    label: "LinkedIn",
-    value: "Add your LinkedIn URL",
-    href: "#",
-    icon: Linkedin,
-  },
+];
+
+const repos = [
+  { label: "Agent-Chatbot", href: "https://github.com/Alishwa-18/Agent-Chatbot" },
+  { label: "Automation-Projects", href: "https://github.com/Alishwa-18/Automation-Projects" },
+  { label: "Projects", href: "https://github.com/Alishwa-18/Projects" },
 ];
 
 export default function Contact() {
@@ -39,7 +51,7 @@ export default function Contact() {
             <a
               key={s.label}
               href={s.href}
-              target={s.href.startsWith("http") ? "_blank" : undefined}
+              target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-3 text-sm transition hover:border-accent"
             >
@@ -47,6 +59,23 @@ export default function Contact() {
               {s.value}
             </a>
           ))}
+        </div>
+
+        <div className="mx-auto mt-10 max-w-md border-t border-border pt-6">
+          <div className="section-label mb-3">Browse the code</div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {repos.map((r) => (
+              <a
+                key={r.href}
+                href={r.href}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1 rounded-full border border-border px-4 py-2 text-xs text-muted transition hover:border-accent hover:text-white"
+              >
+                {r.label} <ExternalLink size={12} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
