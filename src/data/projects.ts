@@ -1,7 +1,7 @@
 export type Project = {
   slug: string;
   title: string;
-  category: "AI Agent" | "Automation" | "Web";
+  category: "Agents & Chatbots" | "Automation" | "Web";
   problem: string;
   approach: string;
   result: string;
@@ -13,54 +13,66 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "switchboard",
+    title: "Switchboard — Multi-Agent Support Router",
+    category: "Agents & Chatbots",
+    problem:
+      "One agent trying to handle billing, scheduling, and general support at once gets bloated, slow, and impossible to debug when it gives a wrong answer.",
+    approach:
+      "Built a FastAPI backend where an orchestrator classifies the incoming message's intent and hands off to a specialist — no business logic lives in the router itself. The Support agent can look up a customer, open a ticket, or call escalate_to_human for anything urgent (account down, angry customer, billing dispute over $500). The Scheduling agent checks availability, books, and lists appointments, and hands back to the router with a handoff tool call if the topic shifts to billing. Added a voice channel through Twilio and a RAG layer so answers stay grounded, plus a deterministic mock mode so every agent path is testable without live API calls.",
+    result:
+      "A support system where each specialist owns exactly one job and the routing decision is auditable — you can trace which agent handled a request and why, instead of debugging one giant prompt.",
+    stack: ["FastAPI", "Python", "Claude API", "Twilio", "RAG"],
+  },
+  {
+    slug: "riskpilot",
+    title: "RiskPilot — Insurance Claims Triage Agent",
+    category: "Agents & Chatbots",
+    problem:
+      "Claims triage needs a decision that's explainable to an auditor — 'the model said so' isn't good enough when the outcome is which queue a $30k claim lands in.",
+    approach:
+      "Built a claims agent where the LLM decides when to call a tool, but the actual risk decision is deterministic Python, not a model guess: assess_risk_score runs a weighted rule engine (claim amount vs. a $25k high-value threshold, claim velocity — 2+ claims in 30 days, inactive policy status, and a fraud-keyword scan for phrases like 'cash only' or 'no police report'), producing a 0–1 score and a low/elevated/severe band. route_claim then assigns the claim to auto-approval, adjuster, or senior-adjuster queues with an SLA (72h / 24h / 4h) based on that band.",
+    result:
+      "Every triage decision traces back to an explicit, listed reason — 'claim amount exceeds high-value threshold', 'one prior claim in the last 30 days' — instead of an opaque model judgment call.",
+    stack: ["FastAPI", "Python", "Claude API", "Pydantic"],
+  },
+  {
     slug: "flowmind",
     title: "FlowMind — Multi-Agent Lead Platform",
-    category: "AI Agent",
+    category: "Agents & Chatbots",
     problem:
-      "Small teams describe their work in plain language but have no fast way to turn that into an assistant that actually runs it.",
+      "Small teams can describe the assistant they want in plain language, but turning that description into a working, tool-using agent normally means writing an app from scratch.",
     approach:
-      "Built a Next.js platform where a user describes a workflow and gets a configured AI agent (powered by Claude) that manages leads end-to-end — agent configuration, lead capture, and persistent storage via Prisma.",
+      "Built a Next.js/Prisma platform where a user's role/goal/instructions become an agent's system prompt at runtime. The agent loop asks the model what to do, and if it calls a tool, runs it and feeds the result back — capped at 6 steps so a confused agent can't loop forever. Every step (assistant reply or tool call + result) is persisted as its own message row, so a conversation view can replay the full trace, including which tools ran and what they returned. Ships with a mock mode that gives canned tool-call responses when no Anthropic key is set, so the whole loop is demoable without live credentials.",
     result:
-      "A working agent-creation platform: describe the job, get an assistant that tracks leads and executes the workflow, with a mock mode for demoing without live API keys.",
+      "Describe the job in a sentence, get a running agent that tracks leads end-to-end — and every decision the agent made is inspectable after the fact, not just the final answer.",
     stack: ["Next.js", "TypeScript", "Claude API", "Prisma", "Tailwind CSS"],
     links: [{ label: "Local build", href: "#" }],
   },
   {
     slug: "myagent",
     title: "Personal AI Assistant",
-    category: "AI Agent",
+    category: "Agents & Chatbots",
     problem:
       "Switching between calendar, notes, and chat apps to get simple things done wastes time and breaks focus.",
     approach:
-      "Built a custom-coded assistant with four modes (Writing, Creative, Conversation, Personal). In Personal mode it uses LLM function calling to take real actions — not just generate text.",
+      "Built a custom-coded Next.js assistant with four selectable modes — Writing, Creative, Conversation, and Personal — running on GLM-4.5-Flash. In Personal mode, function calling lets it take real actions instead of only generating text: creating and checking Google Calendar events, creating and listing Notion tasks. Auth and per-user accounts run through Clerk, and conversations persist client-side with a searchable history and light/dark theming.",
     result:
-      "Creates and checks Google Calendar events, creates and lists Notion tasks, supports per-user accounts via Clerk, and keeps a searchable conversation history with light/dark modes.",
+      "An assistant that actually does the thing instead of describing how you'd do it — checks your calendar, files a Notion task, and remembers the conversation next time you open it.",
     stack: ["Next.js", "TypeScript", "React", "Clerk", "Google Calendar API", "Notion API", "GLM-4.5-Flash"],
     links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Agent-Chatbot" }],
   },
   {
-    slug: "switchboard",
-    title: "Switchboard — Multi-Agent Support Router",
-    category: "AI Agent",
+    slug: "ai-telegram-task-bot",
+    title: "AI Telegram Task Bot",
+    category: "Agents & Chatbots",
     problem:
-      "A single support agent trying to do everything (scheduling, documents, general support) gets slow, expensive, and hard to reason about.",
+      "Remote teams switch apps constantly just to log a task — enough friction that the task often doesn't get logged at all.",
     approach:
-      "Built an orchestrator that reads the incoming request and routes it to a specialized agent — scheduling, document handling, or general support — keeping the router itself deliberately 'dumb' so it stays fast. Added a voice channel via Twilio and a retrieval layer (RAG) for grounded answers.",
+      "Built an AI-powered Telegram bot in n8n that accepts text or voice messages, transcribes voice input, and asks smart follow-up questions for whatever detail is missing (due date, priority, assignee) before creating the task directly in the connected project management system, with an instant confirmation sent back.",
     result:
-      "A FastAPI backend where each specialist agent owns one job, the router owns none of the business logic, and voice calls are handled through the same orchestration path as chat.",
-    stack: ["FastAPI", "Python", "Claude API", "Twilio", "RAG"],
-  },
-  {
-    slug: "riskpilot",
-    title: "RiskPilot — Insurance Claims Triage Agent",
-    category: "AI Agent",
-    problem:
-      "Claims triage decisions need to be explainable and consistent, not left entirely to an LLM's judgment call.",
-    approach:
-      "Split the system so the LLM decides *when* to call a tool, but the scoring and routing logic itself is deterministic Python — rule-based scoring and DB lookups — not model output.",
-    result:
-      "A claims agent whose risk decisions are auditable: every score can be traced to explicit rules instead of an opaque model response.",
-    stack: ["FastAPI", "Python", "Claude API", "Pydantic"],
+      "80% reduction in manual task-entry time and near-zero missed follow-ups for the client's remote team.",
+    stack: ["n8n", "Telegram API", "OpenAI", "Notion API"],
   },
   {
     slug: "evoke-london",
@@ -82,22 +94,10 @@ export const projects: Project[] = [
     problem:
       "A hospitality client needed bookings, deposits, and staged payments to flow automatically from intake to confirmation without manual follow-up.",
     approach:
-      "Built a Make.com scenario chain: form intake writes to Notion, a router splits by payment stage, and Stripe creates/updates invoices and finalizes drafts across first/full-payment paths, with WhatsApp Business Cloud sending templated confirmations at each step.",
+      "Built a Make.com scenario chain: form intake writes to Notion, a router splits by payment stage, and Stripe creates/updates invoices and finalizes drafts across first-payment and full-payment paths, with WhatsApp Business Cloud sending templated confirmations at each step.",
     result:
       "Leads move from form submission to a confirmed, paid booking with WhatsApp confirmations at every stage — no manual invoice creation.",
     stack: ["Make.com", "Notion API", "Stripe API", "WhatsApp Business Cloud"],
-  },
-  {
-    slug: "ai-telegram-task-bot",
-    title: "AI Telegram Task Bot",
-    category: "Automation",
-    problem:
-      "Remote teams switch apps constantly just to log a task — creating friction that means tasks don't get logged at all.",
-    approach:
-      "Built an AI-powered Telegram bot in n8n that accepts text or voice messages, asks smart follow-up questions for any missing detail (due date, priority, assignee), and creates the task directly in a connected project management system with instant confirmation.",
-    result:
-      "80% reduction in manual task-entry time and near-zero missed follow-ups for the client's remote team.",
-    stack: ["n8n", "Telegram API", "OpenAI", "Notion API"],
   },
   {
     slug: "automation-projects-suite",
@@ -168,3 +168,5 @@ export const teamProjects: Project[] = [
     team: true,
   },
 ];
+
+export const categories = ["All", "Agents & Chatbots", "Automation", "Web"] as const;

@@ -1,7 +1,15 @@
-import { projects, teamProjects } from "@/data/projects";
+"use client";
+
+import { useState } from "react";
+import { projects, teamProjects, categories } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
+  const [active, setActive] = useState<(typeof categories)[number]>("All");
+
+  const filtered =
+    active === "All" ? projects : projects.filter((p) => p.category === active);
+
   return (
     <section id="projects" className="mx-auto max-w-6xl px-6 py-24">
       <div className="section-label">Featured Projects</div>
@@ -13,25 +21,43 @@ export default function Projects() {
         system that runs without me in the loop.
       </p>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p) => (
+      <div className="mt-8 flex flex-wrap gap-2">
+        {categories.map((c) => (
+          <button
+            key={c}
+            onClick={() => setActive(c)}
+            className={`rounded-full border px-4 py-2 text-sm transition ${
+              active === c
+                ? "border-accent bg-accent/10 text-white"
+                : "border-border text-muted hover:border-accent/50 hover:text-white"
+            }`}
+          >
+            {c}
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {filtered.map((p) => (
           <ProjectCard key={p.slug} project={p} />
         ))}
       </div>
 
-      <div className="mt-20">
-        <div className="section-label">Collaborative Work</div>
-        <h3 className="mt-2 text-2xl font-bold">Team automation builds</h3>
-        <p className="mt-3 max-w-2xl text-muted">
-          Built as part of a team or client engagement, not solo — included
-          here for the workflow design and tooling experience, not solo credit.
-        </p>
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {teamProjects.map((p) => (
-            <ProjectCard key={p.slug} project={p} />
-          ))}
+      {(active === "All" || active === "Automation") && (
+        <div className="mt-20">
+          <div className="section-label">Collaborative Work</div>
+          <h3 className="mt-2 text-2xl font-bold">Team automation builds</h3>
+          <p className="mt-3 max-w-2xl text-muted">
+            Built as part of a team or client engagement, not solo — included
+            here for the workflow design and tooling experience, not solo credit.
+          </p>
+          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {teamProjects.map((p) => (
+              <ProjectCard key={p.slug} project={p} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }
