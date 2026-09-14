@@ -12,11 +12,15 @@ const items = [
     ],
   },
   {
-    role: "Automation Engineer",
+    role: "AI Automation Engineer",
     org: "BitzSol",
     type: "Part-time",
-    period: "Oct 2025 — Dec 2025",
-    points: [] as string[],
+    period: "Sep 2025 — Dec 2025",
+    points: [
+      "Developed a recursive \"Master Agent V3\" system using n8n and LangChain that automatically routes user requests between specialized sub-agents, reducing user friction by 80%.",
+      "Designed an end-to-end voice AI pipeline using ElevenLabs and Whisper; built a Telegram-to-Notion workflow that transcribes voice notes and auto-categorizes tasks into databases.",
+      "Orchestrated a custom two-way synchronization between Zoho CRM and GoHighLevel using webhooks, maintaining real-time data integrity for a database of 10,000+ leads.",
+    ],
   },
   {
     role: "Automation Specialist",
