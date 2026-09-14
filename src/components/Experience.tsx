@@ -1,18 +1,18 @@
 const items = [
   {
-    role: "Automation Engineer",
+    role: "AI Automation Engineer",
     org: "Thinkrr",
     type: "Part-time",
     period: "Jan 2026 — Present",
     points: [
-      "Own production voice AI agents (including Ava) handling real customer calls end-to-end.",
-      "Analyze full conversation journeys: tool calls, structured data, prompt behavior, transfers, API failures, latency, and conversation loops.",
-      "Diagnose why an agent failed and which part of the workflow needs to change — not just re-prompt and hope.",
-      "Build n8n/Make workflows for email, CRM, and API-driven customer-intent routing.",
+      "Test and review voice AI agents (including Ava) across real call scenarios — customer verification, information lookup, and call transfers.",
+      "Analyze call transcripts and tool-call logs to identify conversation issues, edge cases, API failures, and unexpected agent behavior; document findings for developers and retest fixes after updates.",
+      "Build and improve n8n and Make.com workflows involving API integrations, data synchronization, email automation, and error handling.",
+      "Develop specialized LLM agents using Python and Node.js for automated report generation.",
     ],
   },
   {
-    role: "AI Automation Engineer",
+    role: "Lead AI Automation Engineer",
     org: "BitzSol",
     type: "Part-time",
     period: "Sep 2025 — Dec 2025",
@@ -23,16 +23,6 @@ const items = [
     ],
   },
   {
-    role: "Automation Specialist",
-    org: "Freelance Automation Consultant",
-    type: "Full-time",
-    period: "Jun 2025 — Sep 2025",
-    points: [
-      "Led end-to-end delivery of automation projects for international clients under the guidance of a freelance consultant.",
-      "Designed, built, and debugged workflows to streamline business processes, including CRM automation.",
-    ],
-  },
-  {
     role: "Intern",
     org: "Digital Empowerment Network",
     type: "Internship",
@@ -40,11 +30,26 @@ const items = [
     points: ["Web development and full-stack development."],
   },
   {
-    role: "Intern",
+    role: "Automation Specialist",
     org: "Drobizz Media",
-    type: "Internship",
+    type: "Full-time",
     period: "Jun 2025 — Aug 2025",
-    points: ["Branding, identity, and creative support at a digital marketing agency."],
+    points: [
+      "Spearheaded a full-cycle marketing production pipeline using GPT-4o for copy and DALL-E 3 for visuals, fully automated via API for Instagram and LinkedIn scheduling.",
+      "Authored Python scripts for automated lead scoring based on public engagement data, identifying high-intent prospects for the sales team.",
+      "Consolidated disparate marketing data sources into a centralized Looker Studio dashboard, giving the executive team real-time ROI tracking and analytics.",
+    ],
+  },
+  {
+    role: "Solutions Architect",
+    org: "Independent Consultant",
+    type: "Remote",
+    period: "Jun 2024 — Aug 2024",
+    points: [
+      "Developed a \"headless\" booking engine using NLP to extract meeting requests from emails and automatically coordinate Outlook calendar invites.",
+      "Built \"Wise Invoices,\" an OCR-based automation for high-volume PDF processing that validates line items against purchase orders and triggers Stripe payouts.",
+      "Served as technical lead for international SMEs migrating manual Excel-based processes into scalable SQL and Supabase database environments.",
+    ],
   },
 ];
 

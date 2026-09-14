@@ -145,15 +145,15 @@ export const projects: Project[] = [
   },
   {
     slug: "invoice-processing",
-    title: "Invoice & Vendor Payment Processing",
+    title: "Wise Invoices — OCR Payment Automation",
     category: "n8n Automation",
     problem:
-      "Invoices arriving by email had to be manually read, logged, and tracked through to vendor payment status.",
+      "High-volume invoices arriving by email had to be manually read, checked against purchase orders, and paid out — slow and error-prone at volume.",
     approach:
-      "Built an n8n workflow that receives invoice documents through Gmail, extracts the relevant data, stores files in Drive, updates records in Sheets/Airtable, and — for Wise-based payments — updates payment records and notifies vendors of status changes.",
+      "Built an OCR-based n8n workflow that receives invoice PDFs through Gmail, extracts line-item data, validates it against purchase orders, stores files in Drive, updates records in Sheets/Airtable, and triggers Stripe payouts once validated.",
     result:
-      "Invoices go from inbox to logged, tracked record automatically, with vendors notified without anyone re-typing payment details.",
-    stack: ["n8n", "Gmail", "Google Drive", "Airtable", "Wise", "PDF.co"],
+      "Invoices go from inbox to a validated, paid record automatically — line items are checked against purchase orders before a payout ever triggers.",
+    stack: ["n8n", "OCR", "Gmail", "Google Drive", "Airtable", "Stripe", "PDF.co"],
     links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Automation-Projects" }],
   },
 
