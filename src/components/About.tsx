@@ -2,7 +2,7 @@ const steps = [
   {
     n: "01",
     title: "Production Experience",
-    body: "I work as an AI Automation Engineer on voice AI agents that handle real pharmacy customer calls — refills, prescriptions, transfers.",
+    body: "I work as an AI Automation Engineer on voice AI agents — including Ava — that handle real customer calls in production.",
   },
   {
     n: "02",

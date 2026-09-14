@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { projects, teamProjects, categories } from "@/data/projects";
+import { projects, categories } from "@/data/projects";
 import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
@@ -18,7 +18,9 @@ export default function Projects() {
       </h2>
       <p className="mt-4 max-w-2xl text-muted">
         Every project below started as an operational problem and ended as a
-        system that runs without me in the loop.
+        system that runs without me in the loop. Projects marked{" "}
+        <span className="text-white">Team Project</span> were built as part of
+        a client or team engagement, not solo.
       </p>
 
       <div className="mt-8 flex flex-wrap gap-2">
@@ -42,22 +44,6 @@ export default function Projects() {
           <ProjectCard key={p.slug} project={p} />
         ))}
       </div>
-
-      {(active === "All" || active === "Automation") && (
-        <div className="mt-20">
-          <div className="section-label">Collaborative Work</div>
-          <h3 className="mt-2 text-2xl font-bold">Team automation builds</h3>
-          <p className="mt-3 max-w-2xl text-muted">
-            Built as part of a team or client engagement, not solo — included
-            here for the workflow design and tooling experience, not solo credit.
-          </p>
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {teamProjects.map((p) => (
-              <ProjectCard key={p.slug} project={p} />
-            ))}
-          </div>
-        </div>
-      )}
     </section>
   );
 }

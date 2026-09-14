@@ -1,17 +1,28 @@
+export type Category =
+  | "Agents & Chatbots"
+  | "n8n Automation"
+  | "Make.com Automation"
+  | "Zapier Automation"
+  | "GoHighLevel / CRM"
+  | "Web";
+
 export type Project = {
   slug: string;
   title: string;
-  category: "Agents & Chatbots" | "Automation" | "Web";
+  category: Category;
   problem: string;
   approach: string;
   result: string;
   stack: string[];
   links?: { label: string; href: string }[];
   team?: boolean; // collaborative / team build, not solo authorship
-  image?: string; // path under /public/projects
+  image?: string; // path under /public/projects — ask me to wire this in once you send the file
 };
 
 export const projects: Project[] = [
+  // ---------------------------------------------------------------------
+  // Agents & Chatbots
+  // ---------------------------------------------------------------------
   {
     slug: "switchboard",
     title: "Switchboard — Multi-Agent Support Router",
@@ -47,7 +58,6 @@ export const projects: Project[] = [
     result:
       "Describe the job in a sentence, get a running agent that tracks leads end-to-end — and every decision the agent made is inspectable after the fact, not just the final answer.",
     stack: ["Next.js", "TypeScript", "Claude API", "Prisma", "Tailwind CSS"],
-    links: [{ label: "Local build", href: "#" }],
   },
   {
     slug: "myagent",
@@ -62,10 +72,14 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "React", "Clerk", "Google Calendar API", "Notion API", "GLM-4.5-Flash"],
     links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Agent-Chatbot" }],
   },
+
+  // ---------------------------------------------------------------------
+  // n8n Automation
+  // ---------------------------------------------------------------------
   {
     slug: "ai-telegram-task-bot",
     title: "AI Telegram Task Bot",
-    category: "Agents & Chatbots",
+    category: "n8n Automation",
     problem:
       "Remote teams switch apps constantly just to log a task — enough friction that the task often doesn't get logged at all.",
     approach:
@@ -74,6 +88,151 @@ export const projects: Project[] = [
       "80% reduction in manual task-entry time and near-zero missed follow-ups for the client's remote team.",
     stack: ["n8n", "Telegram API", "OpenAI", "Notion API"],
   },
+  {
+    slug: "master-agent-router",
+    title: "Master Agent — Multi-Workflow Router",
+    category: "n8n Automation",
+    problem:
+      "Every new request type (appointments, reminders, meetings) meant building yet another standalone, disconnected workflow.",
+    approach:
+      "Built an n8n Master Agent that receives an incoming request, holds conversation memory, and routes it to the correct specialized tool workflow — Appointment Agent, Reminder Agent, Telegram Task Agent — with error handling around each handoff.",
+    result:
+      "New capabilities plug in as another tool workflow behind the same front door instead of another one-off automation to maintain.",
+    stack: ["n8n", "OpenAI", "Telegram", "Webhooks"],
+    links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Automation-Projects" }],
+  },
+  {
+    slug: "hubspot-chatbot",
+    title: "HubSpot Customer Communication Bot",
+    category: "n8n Automation",
+    problem:
+      "Incoming customer requests needed to hit HubSpot, trigger the right follow-up, and get logged — without someone manually relaying each one.",
+    approach:
+      "Built an n8n workflow connecting HubSpot, Twilio, Google Sheets, and OpenAI to classify incoming requests, manage the conversation, and support automated follow-ups logged back to the CRM.",
+    result:
+      "Incoming requests are classified and followed up on automatically, with a Sheets-based record of what happened and when.",
+    stack: ["n8n", "HubSpot", "Twilio", "Google Sheets", "OpenAI"],
+    links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Automation-Projects" }],
+  },
+  {
+    slug: "meeting-management-system",
+    title: "Meeting Management System",
+    category: "n8n Automation",
+    problem:
+      "Creating, rescheduling, cancelling, and reminding people about meetings was five different manual steps across calendars and chat.",
+    approach:
+      "Built a group of connected n8n workflows that separate personal vs. project meetings, handle cancellations and rescheduling, and send reminders — integrated with Google Calendar, Outlook, Notion, and Telegram.",
+    result:
+      "One connected system instead of five manual steps — book, move, cancel, or remind, all through the same workflow family.",
+    stack: ["n8n", "Google Calendar", "Microsoft Outlook", "Notion", "Telegram"],
+    links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Automation-Projects" }],
+  },
+  {
+    slug: "invoice-processing",
+    title: "Invoice & Vendor Payment Processing",
+    category: "n8n Automation",
+    problem:
+      "Invoices arriving by email had to be manually read, logged, and tracked through to vendor payment status.",
+    approach:
+      "Built an n8n workflow that receives invoice documents through Gmail, extracts the relevant data, stores files in Drive, updates records in Sheets/Airtable, and — for Wise-based payments — updates payment records and notifies vendors of status changes.",
+    result:
+      "Invoices go from inbox to logged, tracked record automatically, with vendors notified without anyone re-typing payment details.",
+    stack: ["n8n", "Gmail", "Google Drive", "Airtable", "Wise", "PDF.co"],
+    links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Automation-Projects" }],
+  },
+
+  // ---------------------------------------------------------------------
+  // Make.com Automation
+  // ---------------------------------------------------------------------
+  {
+    slug: "sous-experiences",
+    title: "SOUS Experiences — Booking & Payment Automation",
+    category: "Make.com Automation",
+    problem:
+      "A hospitality client needed bookings, deposits, and staged payments to flow automatically from intake to confirmation without manual follow-up.",
+    approach:
+      "Built a Make.com scenario chain: form intake writes to Notion, a router splits by payment stage, and Stripe creates/updates invoices and finalizes drafts across first-payment and full-payment paths, with WhatsApp Business Cloud sending templated confirmations at each step.",
+    result:
+      "Leads move from form submission to a confirmed, paid booking with WhatsApp confirmations at every stage — no manual invoice creation.",
+    stack: ["Make.com", "Notion API", "Stripe API", "WhatsApp Business Cloud"],
+  },
+  {
+    slug: "crm-woocommerce-automation",
+    title: "CRM & WooCommerce Automation",
+    category: "Make.com Automation",
+    problem:
+      "Orders and customer requests needed to update Zoho CRM, Zoho Books, and the WooCommerce store consistently, without three separate manual entries.",
+    approach:
+      "Built a Make.com workflow that classifies incoming requests with OpenAI and updates Zoho CRM, Zoho Books, and WooCommerce accordingly, with Gmail handling the customer-facing side.",
+    result:
+      "One incoming request updates CRM, billing, and store records together instead of drifting out of sync across three systems.",
+    stack: ["Make.com", "Zoho CRM", "Zoho Books", "WooCommerce", "OpenAI", "Gmail"],
+    links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Automation-Projects" }],
+  },
+
+  // ---------------------------------------------------------------------
+  // Zapier Automation (team / collaborative builds)
+  // ---------------------------------------------------------------------
+  {
+    slug: "zapier-lead-management",
+    title: "Lead Management Automation (Zapier)",
+    category: "Zapier Automation",
+    problem:
+      "Lead follow-up, onboarding, and retention emails were being sent manually as leads moved through Asana.",
+    approach:
+      "Contributed to five connected Zapier workflows spanning Asana, Google Drive, and Gmail — folder/subtask creation, unresponsive-lead follow-up, quote reminders, welcome emails, and post-close service recommendations.",
+    result:
+      "Faster response times and consistent lead nurturing across the full lifecycle, from 'Ready to Start' through 'Paid & Closed.'",
+    stack: ["Zapier", "Asana", "Google Drive", "Gmail"],
+    team: true,
+  },
+  {
+    slug: "zapier-crm-suite",
+    title: "Zapier CRM Automation (Zoom, Zendesk, Asana)",
+    category: "Zapier Automation",
+    problem:
+      "Meeting notes, support tickets, and tasks lived in three disconnected tools.",
+    approach:
+      "Contributed to Zapier automations connecting Zoom transcripts to Asana tasks, Zendesk tickets to Slack updates, and deal notes to drafted emails.",
+    result:
+      "Meeting and support activity automatically became tracked tasks and notifications instead of manual copy-paste.",
+    stack: ["Zapier", "Zoom", "Zendesk", "Asana", "Slack"],
+    team: true,
+  },
+  {
+    slug: "workflows-suite",
+    title: "Cross-Platform Intake Workflows",
+    category: "Zapier Automation",
+    problem:
+      "A range of small business processes (form intake, task creation, service mapping) needed no-code automation across three different platforms.",
+    approach:
+      "Contributed workflows across n8n, Make, and Zapier — including a Fillout Forms → Notion → WhatsApp/Gmail intake flow and Make.com service-mapping uploads.",
+    result:
+      "Cross-platform automation experience — comparing how the same intake-to-notification pattern is built in n8n, Make, and Zapier.",
+    stack: ["n8n", "Make.com", "Zapier", "Notion API", "WhatsApp Business Cloud"],
+    team: true,
+  },
+
+  // ---------------------------------------------------------------------
+  // GoHighLevel / CRM (team / collaborative build)
+  // ---------------------------------------------------------------------
+  {
+    slug: "ghl-real-estate",
+    title: "Real Estate Lead-to-Appointment Automation",
+    category: "GoHighLevel / CRM",
+    problem:
+      "Manual lead handling after a booked consultation created slow response times and inconsistent CRM records.",
+    approach:
+      "Contributed to a GoHighLevel workflow that turns a booked property consultation into a structured sales opportunity: create/update the opportunity, assign the lead owner, notify internally, and tag the contact for follow-up.",
+    result:
+      "Every step — opportunity creation, lead assignment, notification, and tagging — verified end-to-end against a test CRM contact.",
+    stack: ["GoHighLevel", "CRM Automation"],
+    team: true,
+  },
+
+  // ---------------------------------------------------------------------
+  // Web
+  // ---------------------------------------------------------------------
   {
     slug: "evoke-london",
     title: "Evoke London — Voice-Enabled Contact Form",
@@ -87,86 +246,14 @@ export const projects: Project[] = [
     stack: ["HTML", "CSS", "JavaScript", "Web Speech API"],
     links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Agent-Chatbot" }],
   },
-  {
-    slug: "sous-experiences",
-    title: "SOUS Experiences — Booking & Payment Automation",
-    category: "Automation",
-    problem:
-      "A hospitality client needed bookings, deposits, and staged payments to flow automatically from intake to confirmation without manual follow-up.",
-    approach:
-      "Built a Make.com scenario chain: form intake writes to Notion, a router splits by payment stage, and Stripe creates/updates invoices and finalizes drafts across first-payment and full-payment paths, with WhatsApp Business Cloud sending templated confirmations at each step.",
-    result:
-      "Leads move from form submission to a confirmed, paid booking with WhatsApp confirmations at every stage — no manual invoice creation.",
-    stack: ["Make.com", "Notion API", "Stripe API", "WhatsApp Business Cloud"],
-  },
-  {
-    slug: "automation-projects-suite",
-    title: "Master Agent & Business Automation Suite",
-    category: "Automation",
-    problem:
-      "Meetings, reminders, invoices, and CRM updates were each being handled by separate, manual, one-off processes.",
-    approach:
-      "Built a library of connected n8n/Make workflows anchored by a Master Agent that routes each incoming request to the right specialized workflow — meeting management (create, reschedule, cancel, remind), invoice processing (Gmail → extract → Sheets/Airtable → notify), and a CRM/WooCommerce automation that classifies requests and updates Zoho CRM, Zoho Books, and WooCommerce.",
-    result:
-      "A reusable automation suite covering meetings, reminders, invoicing, and CRM sync — each workflow independently testable and triggerable through the Master Agent.",
-    stack: ["n8n", "Make.com", "OpenAI", "HubSpot", "Zoho CRM", "WooCommerce", "Google Workspace", "Airtable"],
-    links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Automation-Projects" }],
-  },
 ];
 
-export const teamProjects: Project[] = [
-  {
-    slug: "ghl-real-estate",
-    title: "Real Estate Lead-to-Appointment Automation",
-    category: "Automation",
-    problem:
-      "Manual lead handling after a booked consultation created slow response times and inconsistent CRM records.",
-    approach:
-      "Contributed to a GoHighLevel workflow that turns a booked property consultation into a structured sales opportunity: create/update the opportunity, assign the lead owner, notify internally, and tag the contact for follow-up.",
-    result:
-      "Every step — opportunity creation, lead assignment, notification, and tagging — verified end-to-end against a test CRM contact.",
-    stack: ["GoHighLevel", "CRM Automation"],
-    team: true,
-  },
-  {
-    slug: "zapier-lead-management",
-    title: "Lead Management Automation (Zapier)",
-    category: "Automation",
-    problem:
-      "Lead follow-up, onboarding, and retention emails were being sent manually as leads moved through Asana.",
-    approach:
-      "Contributed to five connected Zapier workflows spanning Asana, Google Drive, and Gmail — folder/subtask creation, unresponsive-lead follow-up, quote reminders, welcome emails, and post-close service recommendations.",
-    result:
-      "Faster response times and consistent lead nurturing across the full lifecycle, from 'Ready to Start' through 'Paid & Closed.'",
-    stack: ["Zapier", "Asana", "Google Drive", "Gmail"],
-    team: true,
-  },
-  {
-    slug: "zapier-crm-suite",
-    title: "Zapier CRM Automation (Zoom, Zendesk, Asana)",
-    category: "Automation",
-    problem:
-      "Meeting notes, support tickets, and tasks lived in three disconnected tools.",
-    approach:
-      "Contributed to Zapier automations connecting Zoom transcripts to Asana tasks, Zendesk tickets to Slack updates, and deal notes to drafted emails.",
-    result:
-      "Meeting and support activity automatically became tracked tasks and notifications instead of manual copy-paste.",
-    stack: ["Zapier", "Zoom", "Zendesk", "Asana", "Slack"],
-    team: true,
-  },
-  {
-    slug: "workflows-suite",
-    title: "n8n / Make / Zapier Workflow Collection",
-    category: "Automation",
-    problem:
-      "A range of small business processes (form intake, task creation, service mapping) needed no-code automation across three different platforms.",
-    approach:
-      "Contributed workflows across n8n, Make, and Zapier — including a Fillout Forms → Notion → WhatsApp/Gmail intake flow and Make.com service-mapping uploads.",
-    result:
-      "Cross-platform automation experience — comparing how the same intake-to-notification pattern is built in n8n, Make, and Zapier.",
-    stack: ["n8n", "Make.com", "Zapier", "Notion API", "WhatsApp Business Cloud"],
-    team: true,
-  },
-];
-
-export const categories = ["All", "Agents & Chatbots", "Automation", "Web"] as const;
+export const categories: readonly ("All" | Category)[] = [
+  "All",
+  "Agents & Chatbots",
+  "n8n Automation",
+  "Make.com Automation",
+  "Zapier Automation",
+  "GoHighLevel / CRM",
+  "Web",
+] as const;

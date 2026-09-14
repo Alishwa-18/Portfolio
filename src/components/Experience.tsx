@@ -4,7 +4,7 @@ const items = [
     org: "Thinkrr",
     period: "Current",
     points: [
-      "Own production voice AI agents handling real pharmacy customer calls — refill and prescription intents.",
+      "Own production voice AI agents (including Ava) handling real customer calls end-to-end.",
       "Analyze full conversation journeys: tool calls, structured data, prompt behavior, transfers, API failures, latency, and conversation loops.",
       "Diagnose why an agent failed and which part of the workflow needs to change — not just re-prompt and hope.",
       "Build n8n/Make workflows for email, CRM, and API-driven customer-intent routing.",
