@@ -171,6 +171,12 @@ export const projects: Project[] = [
     result:
       "Leads move from form submission to a confirmed, paid booking with WhatsApp confirmations at every stage — no manual invoice creation.",
     stack: ["Make.com", "Notion API", "Stripe API", "WhatsApp Business Cloud"],
+    images: [
+      "/projects/sous-experiences/01-intake-router.jpg",
+      "/projects/sous-experiences/02-stripe-router.jpg",
+      "/projects/sous-experiences/03-invoice-chain.jpg",
+      "/projects/sous-experiences/04-full-scenario.jpg",
+    ],
   },
   {
     slug: "crm-woocommerce-automation",
