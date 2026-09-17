@@ -57,10 +57,10 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="fade-in relative mx-auto mt-6 w-full max-w-sm px-6 pb-14 pt-10">
+        <div className="fade-in relative mx-auto mt-6 w-full max-w-sm px-6 pb-24 pt-4">
           <ProfilePhoto />
 
-          <div className="glow-border absolute -top-2 right-0 w-48 rounded-2xl border border-border bg-surface/95 p-4 shadow-2xl backdrop-blur">
+          <div className="glow-border absolute bottom-6 left-0 z-10 w-40 rounded-2xl border border-border bg-surface/95 p-3.5 shadow-2xl backdrop-blur">
             <div className="mb-2 flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-muted">
               <Sparkles size={11} className="text-accent2" />
               Currently building
@@ -74,7 +74,7 @@ export default function Hero() {
             </ul>
           </div>
 
-          <div className="glow-border absolute -bottom-4 left-0 w-56 rounded-2xl border border-border bg-surface/95 p-4 shadow-2xl backdrop-blur">
+          <div className="glow-border absolute -bottom-10 left-10 z-20 w-48 rounded-2xl border border-border bg-surface/95 p-4 shadow-2xl backdrop-blur">
             <div className="mb-3 flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-muted">
               <Radio size={11} className="text-accent2" />
               System status
