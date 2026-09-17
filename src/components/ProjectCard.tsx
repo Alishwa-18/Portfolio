@@ -18,7 +18,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={images[0]}
-            alt={`${project.title} — workflow screenshot`}
+            alt={`${project.title} workflow screenshot`}
             className="h-40 w-full object-cover object-top transition hover:scale-[1.02]"
           />
         </button>

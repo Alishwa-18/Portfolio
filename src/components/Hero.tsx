@@ -28,7 +28,7 @@ export default function Hero() {
           </h1>
 
           <p className="fade-up fade-up-2 mt-6 max-w-xl text-lg text-muted">
-            I build conversational AI agents and business automation systems —
+            I build conversational AI agents and business automation systems,
             from production voice agents handling real customer calls to n8n/Make
             workflows that move leads, invoices, and CRM data without a human
             touching them.
@@ -55,8 +55,17 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="fade-in relative mx-auto mt-6 w-full max-w-sm">
+        <div className="fade-in relative mx-auto mt-6 w-full max-w-sm px-4 pb-10">
           <ProfilePhoto />
+
+          <div className="glow-border absolute -bottom-2 left-0 w-60 rounded-2xl border border-border bg-surface/95 p-4 shadow-xl backdrop-blur">
+            <div className="section-label mb-2">System Status</div>
+            <div className="flex items-center gap-2 text-sm font-semibold text-white">
+              <span className="h-2 w-2 rounded-full bg-accent" />
+              Automations Online
+            </div>
+            <div className="mt-1 font-mono text-xs text-muted">AI Agent active...</div>
+          </div>
         </div>
       </div>
     </section>

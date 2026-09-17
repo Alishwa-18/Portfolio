@@ -3,9 +3,9 @@ const items = [
     role: "AI Automation Engineer",
     org: "Thinkrr",
     type: "Part-time",
-    period: "Jan 2026 — Present",
+    period: "Jan 2026 - Present",
     points: [
-      "Test and review voice AI agents (including Ava) across real call scenarios — customer verification, information lookup, and call transfers.",
+      "Test and review voice AI agents (including Ava) across real call scenarios: customer verification, information lookup, and call transfers.",
       "Analyze call transcripts and tool-call logs to identify conversation issues, edge cases, API failures, and unexpected agent behavior; document findings for developers and retest fixes after updates.",
       "Build and improve n8n and Make.com workflows involving API integrations, data synchronization, email automation, and error handling.",
       "Develop specialized LLM agents using Python and Node.js for automated report generation.",
@@ -15,7 +15,7 @@ const items = [
     role: "Lead AI Automation Engineer",
     org: "BitzSol",
     type: "Part-time",
-    period: "Sep 2025 — Dec 2025",
+    period: "Sep 2025 - Dec 2025",
     points: [
       "Developed a recursive \"Master Agent V3\" system using n8n and LangChain that automatically routes user requests between specialized sub-agents, reducing user friction by 80%.",
       "Designed an end-to-end voice AI pipeline using ElevenLabs and Whisper; built a Telegram-to-Notion workflow that transcribes voice notes and auto-categorizes tasks into databases.",
@@ -26,14 +26,14 @@ const items = [
     role: "Intern",
     org: "Digital Empowerment Network",
     type: "Internship",
-    period: "Jul 2025 — Sep 2025",
+    period: "Jul 2025 - Sep 2025",
     points: ["Web development and full-stack development."],
   },
   {
     role: "Automation Specialist",
     org: "Drobizz Media",
     type: "Full-time",
-    period: "Jun 2025 — Aug 2025",
+    period: "Jun 2025 - Aug 2025",
     points: [
       "Spearheaded a full-cycle marketing production pipeline using GPT-4o for copy and DALL-E 3 for visuals, fully automated via API for Instagram and LinkedIn scheduling.",
       "Authored Python scripts for automated lead scoring based on public engagement data, identifying high-intent prospects for the sales team.",
@@ -44,7 +44,7 @@ const items = [
     role: "Solutions Architect",
     org: "Independent Consultant",
     type: "Remote",
-    period: "Jun 2024 — Aug 2024",
+    period: "Jun 2024 - Aug 2024",
     points: [
       "Developed a \"headless\" booking engine using NLP to extract meeting requests from emails and automatically coordinate Outlook calendar invites.",
       "Built \"Wise Invoices,\" an OCR-based automation for high-volume PDF processing that validates line items against purchase orders and triggers Stripe payouts.",
