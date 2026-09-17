@@ -5,8 +5,6 @@ import { ArrowRight } from "lucide-react";
 
 const roles = ["Voice AI Agents.", "n8n & Make Workflows.", "Multi-Agent Systems.", "CRM Automations."];
 
-const flowSteps = ["Lead", "AI Agent", "CRM", "Notify", "Done ✓"];
-
 export default function Hero() {
   return (
     <section id="top" className="relative pb-32 pt-40">
@@ -56,33 +54,23 @@ export default function Hero() {
               Work With Me
             </a>
           </div>
-
-          <div className="fade-up fade-up-4 mt-10 flex flex-wrap items-center gap-2 rounded-2xl border border-border bg-surface px-5 py-4">
-            {flowSteps.map((step, i) => (
-              <div key={step} className="flex items-center gap-2">
-                <span className="rounded-full border border-border bg-surface2 px-3 py-1.5 text-xs font-semibold">
-                  {step}
-                </span>
-                {i < flowSteps.length - 1 && <span className="text-muted">—</span>}
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="fade-in relative mx-auto w-full max-w-sm">
           <ProfilePhoto />
 
-          <div className="glow-border absolute -bottom-10 -left-6 w-56 rounded-2xl border border-border bg-surface/95 p-4 shadow-xl backdrop-blur sm:-left-10">
-            <div className="section-label mb-2">System Status</div>
-            <div className="space-y-2 font-mono text-xs">
-              <StatusRow label="Voice Agent" value="Active" />
-              <StatusRow label="Lead Router" value="Online" />
+          <div className="absolute -bottom-10 -left-6 w-56 sm:-left-10">
+            <div className="glow-border relative z-10 -mb-8 rounded-2xl border border-border bg-surface/95 px-4 py-3 shadow-xl backdrop-blur">
+              <div className="section-label mb-1">Currently Building</div>
+              <RoleTicker />
             </div>
-          </div>
-
-          <div className="glow-border absolute -top-6 -right-4 rounded-2xl border border-border bg-surface/95 px-4 py-3 shadow-xl backdrop-blur sm:-right-8">
-            <div className="section-label mb-1">Currently Building</div>
-            <RoleTicker />
+            <div className="glow-border relative z-0 rounded-2xl border border-border bg-surface/95 p-4 shadow-xl backdrop-blur">
+              <div className="section-label mb-2">System Status</div>
+              <div className="space-y-2 font-mono text-xs">
+                <StatusRow label="Voice Agent" value="Active" />
+                <StatusRow label="Lead Router" value="Online" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
