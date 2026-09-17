@@ -43,7 +43,7 @@ export default function Contact() {
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-muted">
           Whether it&apos;s a voice agent, a lead-routing workflow, or a
-          multi-agent system, tell me the operational problem and I&apos;ll
+          multi-agent system — tell me the operational problem and I&apos;ll
           tell you how I&apos;d build it.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">

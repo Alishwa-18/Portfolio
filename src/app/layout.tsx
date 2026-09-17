@@ -15,7 +15,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alishwa Shakeel: AI Automation Engineer",
+  title: "Alishwa Shakeel — AI Automation Engineer",
   description:
     "AI Automation Engineer building conversational agents, n8n/Make workflows, and multi-agent systems. Production voice AI experience plus a portfolio of automation and agent projects.",
 };

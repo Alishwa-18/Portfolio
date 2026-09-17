@@ -2,17 +2,17 @@ const steps = [
   {
     n: "01",
     title: "Production Experience",
-    body: "I work as an AI Automation Engineer on voice AI agents, including Ava, that handle real customer calls in production.",
+    body: "I work as an AI Automation Engineer on voice AI agents — including Ava — that handle real customer calls in production.",
   },
   {
     n: "02",
     title: "Diagnosing Failures",
-    body: "I analyze full conversation journeys (tool calls, structured data, prompt behavior, API failures, latency, conversation loops) and trace exactly what broke.",
+    body: "I analyze full conversation journeys: tool calls, structured data, prompt behavior, API failures, latency, and conversation loops — then trace exactly what broke.",
   },
   {
     n: "03",
     title: "Building Agents",
-    body: "I apply that production experience to new domains: multi-agent routers, RAG-backed support agents, and deterministic-tool agents for auditable decisions.",
+    body: "I apply that production experience to new domains — multi-agent routers, RAG-backed support agents, and deterministic-tool agents for auditable decisions.",
   },
   {
     n: "04",
@@ -30,7 +30,7 @@ export default function About() {
       </h2>
       <p className="mt-4 max-w-2xl text-muted">
         I already understand production conversational AI and real-customer
-        failures. This portfolio is that experience applied to new domains:
+        failures — this portfolio is that experience applied to new domains:
         lead management, insurance triage, customer support routing, and
         business process automation.
       </p>

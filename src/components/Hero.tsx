@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, MapPin, Radio, Sparkles } from "lucide-react";
-
-const building = ["Voice AI agents", "n8n & Make workflows"];
+import { ArrowRight, MapPin } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -30,7 +28,7 @@ export default function Hero() {
           </h1>
 
           <p className="fade-up fade-up-2 mt-6 max-w-xl text-lg text-muted">
-            I build conversational AI agents and business automation systems,
+            I build conversational AI agents and business automation systems —
             from production voice agents handling real customer calls to n8n/Make
             workflows that move leads, invoices, and CRM data without a human
             touching them.
@@ -57,35 +55,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="fade-in mx-auto mt-6 w-full max-w-sm">
-          <div className="relative">
-            <ProfilePhoto />
-
-            <div className="glow-border absolute -bottom-8 left-4 z-10 w-40 rounded-2xl border border-border bg-surface/95 p-3.5 shadow-2xl backdrop-blur">
-              <div className="mb-2 flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-muted">
-                <Sparkles size={11} className="text-accent2" />
-                Currently building
-              </div>
-              <ul className="space-y-1.5">
-                {building.map((item) => (
-                  <li key={item} className="text-xs font-medium text-white">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="glow-border absolute -bottom-16 left-16 z-20 w-48 rounded-2xl border border-border bg-surface/95 p-4 shadow-2xl backdrop-blur">
-              <div className="mb-3 flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-muted">
-                <Radio size={11} className="text-accent2" />
-                System status
-              </div>
-              <div className="space-y-2">
-                <StatusRow label="Voice Agent" value="Active" />
-                <StatusRow label="Lead Router" value="Online" />
-              </div>
-            </div>
-          </div>
+        <div className="fade-in relative mx-auto mt-6 w-full max-w-sm">
+          <ProfilePhoto />
         </div>
       </div>
     </section>
@@ -119,18 +90,6 @@ function ProfilePhoto() {
         ref={checkAlreadyBroken}
         onError={() => setBroken(true)}
       />
-    </div>
-  );
-}
-
-function StatusRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-center justify-between gap-3 text-xs">
-      <span className="text-muted">{label}</span>
-      <span className="flex items-center gap-1.5 font-medium text-emerald-400">
-        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-        {value}
-      </span>
     </div>
   );
 }
