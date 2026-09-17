@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
-
-const roles = ["Voice AI Agents.", "n8n & Make Workflows.", "Multi-Agent Systems.", "CRM Automations."];
+import { ArrowRight, MapPin } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -36,9 +34,10 @@ export default function Hero() {
             touching them.
           </p>
 
-          <p className="fade-up fade-up-3 mt-4 font-mono text-sm italic text-accent2">
-            &ldquo;I debug agents by tracing the tool call, not by guessing.&rdquo;
-          </p>
+          <div className="fade-up fade-up-3 mt-4 flex items-center gap-2 text-sm text-muted">
+            <MapPin size={14} />
+            Faisalabad, Pakistan · Remote
+          </div>
 
           <div className="fade-up fade-up-4 mt-10 flex flex-wrap gap-4">
             <a
@@ -56,22 +55,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="fade-in relative mx-auto w-full max-w-sm">
+        <div className="fade-in relative mx-auto mt-6 w-full max-w-sm">
           <ProfilePhoto />
-
-          <div className="absolute -bottom-10 -left-6 w-56 sm:-left-10">
-            <div className="glow-border relative z-10 -mb-8 rounded-2xl border border-border bg-surface/95 px-4 py-3 shadow-xl backdrop-blur">
-              <div className="section-label mb-1">Currently Building</div>
-              <RoleTicker />
-            </div>
-            <div className="glow-border relative z-0 rounded-2xl border border-border bg-surface/95 p-4 shadow-xl backdrop-blur">
-              <div className="section-label mb-2">System Status</div>
-              <div className="space-y-2 font-mono text-xs">
-                <StatusRow label="Voice Agent" value="Active" />
-                <StatusRow label="Lead Router" value="Online" />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -105,28 +90,6 @@ function ProfilePhoto() {
         ref={checkAlreadyBroken}
         onError={() => setBroken(true)}
       />
-    </div>
-  );
-}
-
-function StatusRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-center justify-between rounded-lg bg-surface2 px-3 py-2">
-      <span className="text-muted">{label}</span>
-      <span className="flex items-center gap-2 text-emerald-400">
-        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-        {value}
-      </span>
-    </div>
-  );
-}
-
-function RoleTicker() {
-  return (
-    <div className="flex flex-col gap-1 text-sm text-white">
-      {roles.map((r) => (
-        <span key={r}>{r}</span>
-      ))}
     </div>
   );
 }
