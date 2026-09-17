@@ -155,6 +155,7 @@ export const projects: Project[] = [
       "Invoices go from inbox to a validated, paid record automatically — line items are checked against purchase orders before a payout ever triggers.",
     stack: ["n8n", "OCR", "Gmail", "Google Drive", "Airtable", "Stripe", "PDF.co"],
     links: [{ label: "GitHub", href: "https://github.com/Alishwa-18/Automation-Projects" }],
+    images: ["/projects/invoice-processing/01-full-flow.png"],
   },
 
   // ---------------------------------------------------------------------
