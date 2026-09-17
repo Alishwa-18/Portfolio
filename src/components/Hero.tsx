@@ -57,31 +57,33 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="fade-in relative mx-auto mt-6 w-full max-w-sm px-6 pb-24 pt-4">
-          <ProfilePhoto />
+        <div className="fade-in mx-auto mt-6 w-full max-w-sm">
+          <div className="relative">
+            <ProfilePhoto />
 
-          <div className="glow-border absolute bottom-6 left-0 z-10 w-40 rounded-2xl border border-border bg-surface/95 p-3.5 shadow-2xl backdrop-blur">
-            <div className="mb-2 flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-muted">
-              <Sparkles size={11} className="text-accent2" />
-              Currently building
+            <div className="glow-border absolute -bottom-8 left-4 z-10 w-40 rounded-2xl border border-border bg-surface/95 p-3.5 shadow-2xl backdrop-blur">
+              <div className="mb-2 flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-muted">
+                <Sparkles size={11} className="text-accent2" />
+                Currently building
+              </div>
+              <ul className="space-y-1.5">
+                {building.map((item) => (
+                  <li key={item} className="text-xs font-medium text-white">
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="space-y-1.5">
-              {building.map((item) => (
-                <li key={item} className="text-xs font-medium text-white">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
 
-          <div className="glow-border absolute -bottom-10 left-10 z-20 w-48 rounded-2xl border border-border bg-surface/95 p-4 shadow-2xl backdrop-blur">
-            <div className="mb-3 flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-muted">
-              <Radio size={11} className="text-accent2" />
-              System status
-            </div>
-            <div className="space-y-2">
-              <StatusRow label="Voice Agent" value="Active" />
-              <StatusRow label="Lead Router" value="Online" />
+            <div className="glow-border absolute -bottom-16 left-16 z-20 w-48 rounded-2xl border border-border bg-surface/95 p-4 shadow-2xl backdrop-blur">
+              <div className="mb-3 flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-muted">
+                <Radio size={11} className="text-accent2" />
+                System status
+              </div>
+              <div className="space-y-2">
+                <StatusRow label="Voice Agent" value="Active" />
+                <StatusRow label="Lead Router" value="Online" />
+              </div>
             </div>
           </div>
         </div>
