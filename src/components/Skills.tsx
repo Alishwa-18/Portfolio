@@ -9,16 +9,35 @@ const groups = [
   },
   {
     title: "Development & Prototyping",
-    items: ["Python (scraping, SQL, regex)", "JavaScript", "Node.js", "React.js", "Next.js", "Cursor", "Replit"],
+    items: [
+      "Python (scraping, SQL, regex)",
+      "JavaScript",
+      "Node.js",
+      "React.js",
+      "Next.js",
+      "Cursor",
+      "Replit",
+      "Docker",
+    ],
   },
   {
     title: "Business Systems",
-    items: ["HubSpot", "Zoho CRM", "GoHighLevel", "Airtable", "Supabase", "Notion API", "Google Workspace"],
+    items: [
+      "HubSpot",
+      "Zoho CRM",
+      "GoHighLevel",
+      "Airtable",
+      "Supabase",
+      "Xano",
+      "Notion API",
+      "Google Workspace",
+    ],
   },
   {
     title: "Voice AI & Testing",
     items: [
       "ElevenLabs",
+      "Retell AI",
       "Whisper",
       "Conversation-flow testing",
       "Call analysis",

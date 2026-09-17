@@ -5,6 +5,8 @@ import { ArrowRight } from "lucide-react";
 
 const roles = ["Voice AI Agents.", "n8n & Make Workflows.", "Multi-Agent Systems.", "CRM Automations."];
 
+const flowSteps = ["Lead", "AI Agent", "CRM", "Notify", "Done ✓"];
+
 export default function Hero() {
   return (
     <section id="top" className="relative pb-32 pt-40">
@@ -53,6 +55,17 @@ export default function Hero() {
             >
               Work With Me
             </a>
+          </div>
+
+          <div className="fade-up fade-up-4 mt-10 flex flex-wrap items-center gap-2 rounded-2xl border border-border bg-surface px-5 py-4">
+            {flowSteps.map((step, i) => (
+              <div key={step} className="flex items-center gap-2">
+                <span className="rounded-full border border-border bg-surface2 px-3 py-1.5 text-xs font-semibold">
+                  {step}
+                </span>
+                {i < flowSteps.length - 1 && <span className="text-muted">—</span>}
+              </div>
+            ))}
           </div>
         </div>
 
