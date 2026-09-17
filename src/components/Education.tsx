@@ -2,17 +2,17 @@ const education = [
   {
     degree: "Bachelor of Software Engineering (BSSE)",
     org: "University of Agriculture, Faisalabad",
-    period: "2023 - 2027 (Expected)",
+    period: "2023 to 2027 (Expected)",
   },
   {
     degree: "ICS (Intermediate in Computer Science)",
     org: "Masoomeen College",
-    period: "2021 - 2023",
+    period: "2021 to 2023",
   },
   {
     degree: "Matriculation (Sciences)",
     org: "Chenab College, Chiniot",
-    period: "2019 - 2021",
+    period: "2019 to 2021",
   },
 ];
 
