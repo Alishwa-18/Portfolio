@@ -56,10 +56,10 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="fade-in relative mx-auto mt-6 w-full max-w-sm px-4 pb-10 pt-8">
+        <div className="fade-in relative mx-auto w-full max-w-sm">
           <ProfilePhoto />
 
-          <div className="glow-border absolute -bottom-2 left-0 w-48 rounded-2xl border border-border bg-surface/95 p-4 shadow-xl backdrop-blur sm:w-52">
+          <div className="glow-border absolute -bottom-10 -left-6 w-56 rounded-2xl border border-border bg-surface/95 p-4 shadow-xl backdrop-blur sm:-left-10">
             <div className="section-label mb-2">System Status</div>
             <div className="space-y-2 font-mono text-xs">
               <StatusRow label="Voice Agent" value="Active" />
@@ -67,7 +67,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="glow-border absolute -top-2 right-0 rounded-2xl border border-border bg-surface/95 px-4 py-3 shadow-xl backdrop-blur">
+          <div className="glow-border absolute -top-6 -right-4 rounded-2xl border border-border bg-surface/95 px-4 py-3 shadow-xl backdrop-blur sm:-right-8">
             <div className="section-label mb-1">Currently Building</div>
             <RoleTicker />
           </div>
